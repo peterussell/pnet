@@ -7,6 +7,9 @@ class PNetController {
     ~PNetController();
 
     int run();
+
+  private:
+    int initializeSwitch();
 };
 
 #endif
