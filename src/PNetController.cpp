@@ -19,18 +19,16 @@ PNetController::run() {
 
 int
 PNetController::doSetup() {
-
   // Router init
   initializeRouter( "router_0" );
 
   // Switch init
-  cout << "Number of switches: ";
   int numSwitches;
+  cout << "Number of switches: ";
   cin >> numSwitches;
 
   for( int i=0; i<numSwitches; i++ ) {
-    cout << "Initializing Switch " << i << endl;
-    switches.push_back( initializeSwitch( "switch_" + to_string( i ) ) );
+    initializeSwitch( "switch_" + to_string( i ) );
   }
 
   return 0;
@@ -45,12 +43,8 @@ PNetController::initializeRouter( const string& id ) {
 
 int
 PNetController::initializeSwitch( const string& id ) {
-  cout << "Number of ports: ";
-  int numPorts;
-  cin >> numPorts;
-
-  cout << "[controller]: Initializing switch with " << numPorts << " ports" << endl;
-  Switch sw = Switch( numPorts );
+  int numPorts = 10;
+  routers[0].connectSwitch( Switch( id, numPorts ) );
 
   return 0;
 }

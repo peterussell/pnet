@@ -1,18 +1,22 @@
 #ifndef SWITCH_H
 #define SWITCH_H
 
-#include "Port.h"
+#include "Node.h"
 #include <vector>
+#include <string>
 using namespace std;
 
 class Switch {
   public:
-    Switch( int numPorts );
+    Switch( const string& id, int numPorts );
+    const string& get_id();
 
   private:
-    int attachPort( Port p );
+    int attachNode( Node n );
 
-    vector<Port> ports;
+    string id;
+    int numPorts;
+    vector<Node> nodes;
 };
 
 #endif

@@ -1,7 +1,7 @@
 #ifndef ROUTER_H
 #define ROUTER_H
 
-#include "Port.h"
+#include "Switch.h"
 
 #include <string>
 #include <vector>
@@ -10,11 +10,11 @@ using namespace std;
 class Router {
   public:
     Router( const string& id );
+    int connectSwitch( Switch s );
 
   private:
     string id;
-    vector<Port> ports;
-
+    vector<Switch> switches;
 };
 
 #endif
