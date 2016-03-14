@@ -10,6 +10,6 @@ Switch::Switch( int numPorts ) {
   // Initilize the ports collection & add the ports to it
   ports = vector<Port>();
   for( int i=0; i<numPorts; i++ ) {
-    ports.push_back( Port( "test" + to_string( i+1 ) ) );
+    ports.push_back( Port( "test" + to_string( i ) ) );
   }
 }
