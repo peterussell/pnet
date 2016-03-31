@@ -10,7 +10,7 @@ Router::Router( const string& id ) : id( id ) {
 int
 Router::connectSwitch( Switch s ) {
   switches.push_back( s );
-  cout << "[router]: added switch (switch id=" << s.get_id() << ")" << endl;
+  cout << "[router]: added " << s.get_id() << endl;
 
   return 0;
 }

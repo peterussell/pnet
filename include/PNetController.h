@@ -19,6 +19,9 @@ class PNetController {
   private:
     int initializeSwitch( const string& id );
     int initializeRouter( const string& id );
+    int initializeNodes( const int nodesPerSwitch );
+    bool doCommand();
+    void printHelp();
 
     vector<Router> routers;
     vector<Switch> switches;

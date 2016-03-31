@@ -1,0 +1,45 @@
+What's the point of what we're trying to do?
+
+ - initialize a network
+ - send a packet from one node to another
+ - have it travel from the router in every case
+ - when the packet gets to the switch, have the router learn about where
+     the packet is from and going to
+ - if the packet is going to a node:
+   - on the same switch from which it originated
+     - it should send the packet back
+     - add an entry in its route table mapping the port to the switch
+   - on a different switch from which it originated
+     - add an entry in its route table mapping the port to the switch
+     - add an entry in its route table mapping the dest port to the d switch
+     - forward the packet to the correct switch
+
+What's the output we expect to see?
+
+ - switch init and the network configuration
+   - eg. 'initialized network, 1x core router, 2x switches, 2x nodes/switch
+ - should be able to select a node to transmit from:
+   - eg. 'switch-to node1'
+ - should be able to send a packet
+   - eg. 'send-packet node4 / sending packet: id <guid>'
+ - should see the response
+   - eg. 'node4 received packet: id <guid>'
+ - should be able to display the route table
+   - eg. 'router show-routes'
+
+What is the relationship between components?
+
+ - a PNetController should have a vector<Router>, and handle input
+ - a Router should have a vector<Switch>
+ - a Switch should have a vector<Node>
+
+Therefore...
+
+switch-to <node> should:
+
+ - for each router
+   - for each switch
+     - for each node
+       > if node name == <node>
+   PNetController.currentNode = *<node>
+

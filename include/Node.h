@@ -9,7 +9,7 @@ class Node {
     Node( const string& name );
 
   private:
-    string node;
+    string name;
 };
 
 #endif

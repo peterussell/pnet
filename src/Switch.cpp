@@ -8,7 +8,7 @@ Switch::Switch( const string& id,
                 : id( id ), numPorts( numPorts )
 {
   nodes = vector<Node>();
-  cout << "[switch]: initialized switch with " << numPorts << " ports." << endl;
+  cout << "[switch]: initialized " << id << " (" << numPorts << " ports)" << endl;
 }
 
 const string&
